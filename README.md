@@ -10,7 +10,18 @@
 
 **The most comprehensive resource for learning and mastering Google's Gemini CLI.** Build powerful AI applications with confidence through our extensive tutorials, documentation, and hands-on examples.
 
-![Gemini CLI Website Screenshot](https://github.com/user/repo/blob/main/docs/images/website-preview.png)
+![Gemini CLI Website Screenshot](https://github.com/sxyseo/geminicli.cc/blob/main/docs/images/website-preview.png)
+
+## 🌍 Languages
+
+- [🇺🇸 English](README.md) (current)
+- [🇨🇳 简体中文](README.zh-CN.md)
+- [🇯🇵 日本語](README.ja.md)
+- [🇰🇷 한국어](README.ko.md)
+- [🇪🇸 Español](README.es.md)
+- [🇫🇷 Français](README.fr.md)
+- [🇩🇪 Deutsch](README.de.md)
+- [🇷🇺 Русский](README.ru.md)
 
 ## ✨ Features
 
