@@ -53,9 +53,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, ease: "easeOut" }}
-            style={{ willChange: "auto" }}
+            className="mb-6 sm:mb-8"
           >
-            <Badge variant="secondary" className="mb-6 sm:mb-8 px-4 sm:px-6 py-2 text-sm font-medium glass relative z-10">
+            <Badge variant="secondary" className="px-4 sm:px-6 py-2 text-sm font-medium glass relative z-10 inline-flex items-center">
               <Sparkles className="h-4 w-4 mr-2" />
               {t("hero.badge")}
             </Badge>
@@ -65,11 +65,10 @@ export function Hero() {
             className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-6 sm:mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
-            <span className="gradient-text">{t("hero.title")}</span>
-            <br />
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="gradient-text block">{t("hero.title")}</span>
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent block">
               Gemini CLI
             </span>
           </motion.h1>
@@ -78,7 +77,7 @@ export function Hero() {
             className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           >
             {t("hero.description")}
           </motion.p>
@@ -87,7 +86,7 @@ export function Hero() {
             className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-16 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
           >
             <Button
               size="lg"
@@ -118,7 +117,7 @@ export function Hero() {
             className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto px-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
           >
             {[
               { icon: Code, value: "50+", label: t("hero.stats.tutorials") },
@@ -145,7 +144,7 @@ export function Hero() {
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:block"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
+        transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
       >
         <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-muted-foreground/50 rounded-full mt-2 animate-bounce" />
