@@ -174,3 +174,40 @@
 .btn-enhanced:hover::before {
   left: 100%;
 }
+
+/* Hero section specific styles to prevent text disappearing */
+.hero-text {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+.hero-badge {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-flex !important;
+}
+
+/* Ensure motion elements maintain visibility */
+.motion-safe\:opacity-100 {
+  opacity: 1 !important;
+}
+
+/* Fix for gradient text rendering */
+.gradient-text-stable {
+  background: linear-gradient(135deg, #1e293b 0%, #3730a3 50%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* Fallback for browsers that don't support background-clip */
+  color: #1e293b;
+}
+
+.dark .gradient-text-stable {
+  background: linear-gradient(135deg, #f8fafc 0%, #ddd6fe 50%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* Fallback for dark mode */
+  color: #f8fafc;
+}

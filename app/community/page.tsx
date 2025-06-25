@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   Github,
   MessageCircle,
@@ -31,92 +30,6 @@ const communityStats = [
   { icon: Star, label: "GitHub Stars", value: "8,500+", color: "text-yellow-500" },
   { icon: GitFork, label: "Forks", value: "1,200+", color: "text-green-500" },
   { icon: MessageCircle, label: "Discord Members", value: "5,000+", color: "text-purple-500" },
-]
-
-const topContributors = [
-  {
-    name: "Alex Chen",
-    avatar: "/placeholder.svg?height=40&width=40",
-    contributions: 156,
-    role: "Core Maintainer",
-    github: "alexchen",
-  },
-  {
-    name: "Sarah Johnson",
-    avatar: "/placeholder.svg?height=40&width=40",
-    contributions: 89,
-    role: "Plugin Developer",
-    github: "sarahj",
-  },
-  {
-    name: "Mike Rodriguez",
-    avatar: "/placeholder.svg?height=40&width=40",
-    contributions: 67,
-    role: "Documentation",
-    github: "mikero",
-  },
-  {
-    name: "Emma Wilson",
-    avatar: "/placeholder.svg?height=40&width=40",
-    contributions: 45,
-    role: "Community Manager",
-    github: "emmaw",
-  },
-]
-
-const recentDiscussions = [
-  {
-    title: "Best practices for large codebase analysis",
-    author: "DevMaster",
-    replies: 23,
-    category: "Tips & Tricks",
-    time: "2 hours ago",
-  },
-  {
-    title: "New plugin for VS Code integration",
-    author: "CodeNinja",
-    replies: 15,
-    category: "Plugins",
-    time: "4 hours ago",
-  },
-  {
-    title: "Performance optimization techniques",
-    author: "SpeedDemon",
-    replies: 31,
-    category: "Performance",
-    time: "6 hours ago",
-  },
-  {
-    title: "Gemini CLI v2.1 feature requests",
-    author: "FutureBuilder",
-    replies: 42,
-    category: "Feature Requests",
-    time: "1 day ago",
-  },
-]
-
-const upcomingEvents = [
-  {
-    title: "Gemini CLI Workshop",
-    date: "Dec 15, 2024",
-    time: "2:00 PM UTC",
-    type: "Workshop",
-    attendees: 156,
-  },
-  {
-    title: "Community Showcase",
-    date: "Dec 22, 2024",
-    time: "3:00 PM UTC",
-    type: "Showcase",
-    attendees: 89,
-  },
-  {
-    title: "Q&A with Core Team",
-    date: "Jan 5, 2025",
-    time: "1:00 PM UTC",
-    type: "Q&A",
-    attendees: 234,
-  },
 ]
 
 export default function CommunityPage() {
@@ -199,152 +112,52 @@ export default function CommunityPage() {
 
         <Card className="text-center hover:shadow-lg transition-shadow">
           <CardHeader>
-            <Twitter className="h-12 w-12 mx-auto mb-4 text-blue-500" />
-            <CardTitle>Twitter Updates</CardTitle>
-            <CardDescription>Follow us for the latest news, tips, updates, and community highlights.</CardDescription>
+            <Twitter className="h-12 w-12 mx-auto mb-4 text-blue-400" />
+            <CardTitle>Follow Updates</CardTitle>
+            <CardDescription>
+              Stay updated with the latest news, features, and community highlights on Twitter.
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-2 mb-4">
               <div className="flex justify-between text-sm">
                 <span>Followers</span>
-                <span className="text-blue-500">12,000+</span>
+                <span className="text-blue-400">12.5K</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span>Weekly Posts</span>
-                <span>15+</span>
+                <span>Weekly Updates</span>
+                <span>5-7</span>
               </div>
             </div>
             <Button variant="outline" className="w-full">
               <Twitter className="mr-2 h-4 w-4" />
-              Follow Us
+              Follow @GeminiCLI
             </Button>
           </CardContent>
         </Card>
       </div>
 
-      {/* Top Contributors */}
-      <section className="mb-16">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold">Top Contributors</h2>
-          <Button variant="outline" asChild>
-            <Link href="/community/contributors">View All</Link>
+      {/* Getting Started Section */}
+      <div className="text-center">
+        <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+        <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          Join thousands of developers who are already building amazing AI applications with Gemini CLI.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button size="lg" asChild>
+            <Link href="/tutorials/getting-started">
+              <BookOpen className="mr-2 h-5 w-5" />
+              Start Learning
+            </Link>
+          </Button>
+          <Button size="lg" variant="outline" asChild>
+            <Link href="/docs">
+              <Code className="mr-2 h-5 w-5" />
+              View Documentation
+            </Link>
           </Button>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {topContributors.map((contributor) => (
-            <Card key={contributor.name} className="text-center">
-              <CardContent className="pt-6">
-                <Avatar className="h-16 w-16 mx-auto mb-4">
-                  <AvatarImage src={contributor.avatar || "/placeholder.svg"} alt={contributor.name} />
-                  <AvatarFallback>
-                    {contributor.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </AvatarFallback>
-                </Avatar>
-                <h3 className="font-semibold">{contributor.name}</h3>
-                <p className="text-sm text-muted-foreground mb-2">{contributor.role}</p>
-                <Badge variant="secondary">
-                  <Trophy className="h-3 w-3 mr-1" />
-                  {contributor.contributions} contributions
-                </Badge>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Recent Discussions */}
-      <section className="mb-16">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold">Recent Discussions</h2>
-          <Button variant="outline" asChild>
-            <Link href="/community/discussions">View All</Link>
-          </Button>
-        </div>
-        <div className="space-y-4">
-          {recentDiscussions.map((discussion) => (
-            <Card key={discussion.title} className="hover:shadow-md transition-shadow">
-              <CardContent className="p-6">
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Badge variant="outline">{discussion.category}</Badge>
-                      <span className="text-sm text-muted-foreground">{discussion.time}</span>
-                    </div>
-                    <h3 className="font-semibold mb-1">{discussion.title}</h3>
-                    <p className="text-sm text-muted-foreground">
-                      by {discussion.author} • {discussion.replies} replies
-                    </p>
-                  </div>
-                  <Button variant="ghost" size="sm">
-                    Join Discussion
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Upcoming Events */}
-      <section className="mb-16">
-        <h2 className="text-2xl font-bold mb-6">Upcoming Events</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {upcomingEvents.map((event) => (
-            <Card key={event.title} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="flex items-center justify-between mb-2">
-                  <Badge variant="secondary">{event.type}</Badge>
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <Users className="h-4 w-4 mr-1" />
-                    {event.attendees}
-                  </div>
-                </div>
-                <CardTitle className="text-lg">{event.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2 mb-4">
-                  <div className="flex items-center text-sm">
-                    <Calendar className="h-4 w-4 mr-2 text-muted-foreground" />
-                    {event.date}
-                  </div>
-                  <div className="flex items-center text-sm">
-                    <Clock className="h-4 w-4 mr-2 text-muted-foreground" />
-                    {event.time}
-                  </div>
-                </div>
-                <Button className="w-full">Register</Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Community Guidelines */}
-      <section className="bg-muted/30 rounded-lg p-8">
-        <h2 className="text-2xl font-bold mb-6 text-center">Community Guidelines</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-center">
-            <Heart className="h-8 w-8 mx-auto mb-4 text-red-500" />
-            <h3 className="font-semibold mb-2">Be Respectful</h3>
-            <p className="text-sm text-muted-foreground">Treat all community members with respect and kindness.</p>
-          </div>
-          <div className="text-center">
-            <Code className="h-8 w-8 mx-auto mb-4 text-blue-500" />
-            <h3 className="font-semibold mb-2">Share Knowledge</h3>
-            <p className="text-sm text-muted-foreground">Help others learn and grow by sharing your expertise.</p>
-          </div>
-          <div className="text-center">
-            <BookOpen className="h-8 w-8 mx-auto mb-4 text-green-500" />
-            <h3 className="font-semibold mb-2">Stay Curious</h3>
-            <p className="text-sm text-muted-foreground">
-              Keep learning and exploring new possibilities with Gemini CLI.
-            </p>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
   )
 }

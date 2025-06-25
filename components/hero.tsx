@@ -49,44 +49,82 @@ export function Hero() {
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
+          {/* Badge with stable animation */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ 
+              duration: 0.8, 
+              ease: "easeOut",
+              type: "spring",
+              damping: 20,
+              stiffness: 100
+            }}
             className="mb-6 sm:mb-8"
           >
-            <Badge variant="secondary" className="px-4 sm:px-6 py-2 text-sm font-medium glass relative z-10 inline-flex items-center">
-              <Sparkles className="h-4 w-4 mr-2" />
-              {t("hero.badge")}
+            <Badge 
+              variant="secondary" 
+              className="hero-badge px-4 sm:px-6 py-2 text-sm font-medium glass relative z-10 inline-flex items-center opacity-100"
+            >
+              <Sparkles className="h-4 w-4 mr-2 flex-shrink-0" />
+              <span className="whitespace-nowrap font-semibold">
+                {t("hero.badge")}
+              </span>
             </Badge>
           </motion.div>
 
+          {/* Title with stable styling */}
           <motion.h1
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-6 sm:mb-8"
+            className="hero-text text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-6 sm:mb-8 opacity-100"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            transition={{ 
+              duration: 0.8, 
+              delay: 0.2, 
+              ease: "easeOut",
+              type: "spring",
+              damping: 20,
+              stiffness: 100
+            }}
           >
-            <span className="gradient-text block">{t("hero.title")}</span>
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent block">
+            <span className="hero-text gradient-text-stable block font-extrabold">
+              {t("hero.title")}
+            </span>
+            <span className="hero-text block bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent font-extrabold">
               Gemini CLI
             </span>
           </motion.h1>
 
+          {/* Description with stable styling */}
           <motion.p
-            className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4"
+            className="hero-text text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4 opacity-100"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            transition={{ 
+              duration: 0.8, 
+              delay: 0.4, 
+              ease: "easeOut",
+              type: "spring",
+              damping: 20,
+              stiffness: 100
+            }}
           >
             {t("hero.description")}
           </motion.p>
 
+          {/* Buttons */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-16 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            transition={{ 
+              duration: 0.8, 
+              delay: 0.6, 
+              ease: "easeOut",
+              type: "spring",
+              damping: 20,
+              stiffness: 100
+            }}
           >
             <Button
               size="lg"
@@ -113,11 +151,19 @@ export function Hero() {
             </Button>
           </motion.div>
 
+          {/* Stats */}
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto px-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+            transition={{ 
+              duration: 0.8, 
+              delay: 0.8, 
+              ease: "easeOut",
+              type: "spring",
+              damping: 20,
+              stiffness: 100
+            }}
           >
             {[
               { icon: Code, value: "50+", label: t("hero.stats.tutorials") },
@@ -144,7 +190,14 @@ export function Hero() {
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:block"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
+        transition={{ 
+          duration: 1, 
+          delay: 1.2, 
+          ease: "easeOut",
+          type: "spring",
+          damping: 20,
+          stiffness: 100
+        }}
       >
         <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-muted-foreground/50 rounded-full mt-2 animate-bounce" />
