@@ -149,8 +149,8 @@
   background: hsl(var(--primary));
 }
 
-/* Smooth transitions */
-* {
+/* Smooth transitions for specific elements */
+.transition-smooth {
   transition: all 0.2s ease-in-out;
 }
 

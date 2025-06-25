@@ -49,8 +49,13 @@ export function Hero() {
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <Badge variant="secondary" className="mb-6 sm:mb-8 px-4 sm:px-6 py-2 text-sm font-medium glass">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            style={{ willChange: "auto" }}
+          >
+            <Badge variant="secondary" className="mb-6 sm:mb-8 px-4 sm:px-6 py-2 text-sm font-medium glass relative z-10">
               <Sparkles className="h-4 w-4 mr-2" />
               {t("hero.badge")}
             </Badge>
