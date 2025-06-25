@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Play, Star, Sparkles, Zap, Code, Terminal } from "lucide-react"
 import Link from "next/link"
 import { useLanguage } from "@/components/language-provider"
-import { motion } from "framer-motion"
 
 export function Hero() {
   const { t } = useLanguage()
@@ -49,83 +48,36 @@ export function Hero() {
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          {/* Badge with stable animation */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ 
-              duration: 0.8, 
-              ease: "easeOut",
-              type: "spring",
-              damping: 20,
-              stiffness: 100
-            }}
-            className="mb-6 sm:mb-8"
-          >
+          {/* Badge with CSS animation - ALWAYS VISIBLE */}
+          <div className="mb-6 sm:mb-8 hero-animate-1">
             <Badge 
               variant="secondary" 
-              className="hero-badge px-4 sm:px-6 py-2 text-sm font-medium glass relative z-10 inline-flex items-center opacity-100"
+              className="hero-badge hero-permanent-visible-inline px-4 sm:px-6 py-2 text-sm font-medium glass relative z-10 inline-flex items-center"
             >
               <Sparkles className="h-4 w-4 mr-2 flex-shrink-0" />
               <span className="whitespace-nowrap font-semibold">
                 {t("hero.badge")}
               </span>
             </Badge>
-          </motion.div>
+          </div>
 
-          {/* Title with stable styling */}
-          <motion.h1
-            className="hero-text text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-6 sm:mb-8 opacity-100"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.8, 
-              delay: 0.2, 
-              ease: "easeOut",
-              type: "spring",
-              damping: 20,
-              stiffness: 100
-            }}
-          >
-            <span className="hero-text gradient-text-stable block font-extrabold">
+          {/* Title with CSS animation - ALWAYS VISIBLE */}
+          <h1 className="hero-text hero-permanent-visible hero-animate-2 text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-6 sm:mb-8">
+            <span className="hero-text hero-permanent-visible gradient-text-stable block font-extrabold">
               {t("hero.title")}
             </span>
-            <span className="hero-text block bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent font-extrabold">
+            <span className="hero-text hero-permanent-visible block bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent font-extrabold">
               Gemini CLI
             </span>
-          </motion.h1>
+          </h1>
 
-          {/* Description with stable styling */}
-          <motion.p
-            className="hero-text text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4 opacity-100"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.8, 
-              delay: 0.4, 
-              ease: "easeOut",
-              type: "spring",
-              damping: 20,
-              stiffness: 100
-            }}
-          >
+          {/* Description with CSS animation - ALWAYS VISIBLE */}
+          <p className="hero-text hero-permanent-visible hero-animate-3 text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4">
             {t("hero.description")}
-          </motion.p>
+          </p>
 
-          {/* Buttons */}
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-16 px-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.8, 
-              delay: 0.6, 
-              ease: "easeOut",
-              type: "spring",
-              damping: 20,
-              stiffness: 100
-            }}
-          >
+          {/* Buttons with CSS animation */}
+          <div className="hero-animate-4 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-16 px-4">
             <Button
               size="lg"
               className="btn-enhanced px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-2xl hover:shadow-blue-500/25"
@@ -149,22 +101,10 @@ export function Hero() {
                 {t("hero.tryDemo")}
               </Link>
             </Button>
-          </motion.div>
+          </div>
 
-          {/* Stats */}
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto px-4"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.8, 
-              delay: 0.8, 
-              ease: "easeOut",
-              type: "spring",
-              damping: 20,
-              stiffness: 100
-            }}
-          >
+          {/* Stats with CSS animation */}
+          <div className="hero-animate-5 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto px-4">
             {[
               { icon: Code, value: "50+", label: t("hero.stats.tutorials") },
               { icon: Terminal, value: "10k+", label: t("hero.stats.downloads") },
@@ -181,28 +121,16 @@ export function Hero() {
                 <div className="text-sm font-medium text-muted-foreground">{stat.label}</div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:block"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ 
-          duration: 1, 
-          delay: 1.2, 
-          ease: "easeOut",
-          type: "spring",
-          damping: 20,
-          stiffness: 100
-        }}
-      >
+      {/* Scroll indicator with CSS animation */}
+      <div className="hero-animate-6 absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:block">
         <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-muted-foreground/50 rounded-full mt-2 animate-bounce" />
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }
